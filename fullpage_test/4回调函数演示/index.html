@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>基本</title>
+  <link rel="stylesheet" href="css/jquery.fullPage.css">
+  <style type="text/css" media="screen">
+    .section{
+      font-size: 2em;text-align: center;color: #62E6D2;font-family: "Microsoft YaHei";
+    }
+    .section p {
+      font-size: 40px;
+    }
+    b{
+      position: relative; left: -120%;
+    }
+    .section2 p { position: relative; left: -120%;}
+    .section3 p { position: relative; bottom: -120%;}
+    .section4 p { display: none;}
+    .section5 p { position: relative; right: -120%;}
+  </style>
+  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.fullPage.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#basic').fullpage({
+        sectionsColor: ['#DE55D7', '#B562E6', '#55A9EA','#F0D44C','#F3785D'],
+        continuousVertical: true,
+        afterLoad:function(anchorLink,index){
+          if(index == 2){
+            $('.section2').find('p').delay(400).animate({left: '0'},1000,
+              $('b').delay(400).animate({left: '0'},1000)
+              );
+          }
+          if(index == 3){
+            $('.section3').find('p').delay(400).animate({bottom: '0'},1000,'easeOutExpo');
+          }
+          if(index == 4){
+            $('.section4').find('p').fadeIn(1000);
+          }
+          if(index == 5){
+            $('.section5').find('p').delay(400).animate({right: '0'},1000,'easeOutExpo');
+          }
+        },
+        onLeave:function(index,direction){
+          if(index == 2){
+             $('.section2').find('p').delay(400).animate({left: '0'},1000,
+              $('b').delay(400).animate({left: '-120%'},1000)
+              );
+          }
+          if(index == 3){
+            $('.section3').find('p').delay(400).animate({bottom: '-120%'},1000,'easeOutExpo');
+          }
+          if(index == 4){
+            $('.section4').find('p').fadeOut(1000);
+          }
+          if(index == 5){
+            $('.section5').find('p').delay(400).animate({right: '-120%'},1000,'easeOutExpo');
+          }
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+<div id="basic">
+  <div class="section section1">
+    <h2>第一屏</h2>
+    <p>TEST</p>
+  </div>
+  <div class="section section2">
+    <h2>第二屏</h2>
+    <b>回调函数执行的效果</b>
+    <p>TEST</p>
+
+  </div>
+  <div class="section section3">
+    <h4>第三屏</h4>
+    <p>TEST3</p>
+  </div>
+  <div class="section section4">
+    <h2>第四屏</h2>
+    <p>TEST</p>
+  </div>
+  <div class="section section5">
+    <h2>第五屏</h2>
+    <p>TEST</p>
+  </div>
+</div>
+</body>
+</html>

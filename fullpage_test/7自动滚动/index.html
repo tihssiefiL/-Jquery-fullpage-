@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>基本</title>
+  <link rel="stylesheet" href="css/jquery.fullPage.css">
+  <style type="text/css" media="screen">
+    .section{
+      font-size: 2em;text-align: center;color: #62E6D2;font-family: "Microsoft YaHei";
+    }
+  </style>
+  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.fullPage.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#basic').fullpage({
+        sectionsColor: ['#F65B81', '#DE55D7', '#B562E6', '#55A9EA','#2CE46F'],
+        continuousVertical: true
+      });
+      setInterval(function(){
+        $.fn.fullpage.moveSectionDown();
+      },1000);
+    });
+  </script>
+</head>
+<body>
+<div id="basic">
+  <div class="section">
+    <h1>第一屏</h1>
+  </div>
+  <div class="section">
+    <h2>第二屏</h2>
+  </div>
+  <div class="section">
+    <h4>第三屏</h4>
+  </div>
+  <div class="section">
+    <h2>第四屏</h2>
+  </div>
+  <div class="section">
+    <h2>第五屏</h2>
+  </div>
+</div>
+</body>
+</html>

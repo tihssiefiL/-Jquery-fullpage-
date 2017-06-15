@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>基本</title>
+  <link rel="stylesheet" href="css/jquery.fullPage.css">
+  <style type="text/css" media="screen">
+    .section{
+      font-size: 2em;text-align: center;color: #62E6D2;font-family: "Microsoft YaHei";
+    }
+  </style>
+  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.fullPage.js"></script>
+  <script type="text/javascript">
+  //var available_width = 1024;
+    $(function(){
+      $('#basic').fullpage({
+        sectionsColor: ['#F65B81', '#DE55D7', '#B562E6', '#55A9EA','#2CE46F','#F3785D']
+      });
+
+      $(window).resize(function() {
+        autoScrolling();
+      });
+
+      function autoScrolling(wide){
+        var $ww = $(window).width();
+        if($ww < wide)
+          $.fn.fullpage.setAutoScrolling(false);
+        else
+          $.fn.fullpage.setAutoScrolling(true);
+      }
+      autoScrolling(1024);
+    });
+  </script>
+</head>
+<body>
+<div id="basic">
+  <div class="section">
+    <h1>根据可视区域大小启用/关闭全屏滚动效果</h1>
+  </div>
+  <div class="section">
+    <h2>如果可视区宽度小于1024，则关闭全屏滚动效果，使用自带的滚动条</h2>
+  </div>
+  <div class="section">
+    <h1>请试着调整浏览器大小并查看滚动条是否出现</h1>
+  </div>
+</div>
+</body>
+</html>
